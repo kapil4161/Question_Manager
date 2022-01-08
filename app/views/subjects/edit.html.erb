@@ -1,0 +1,31 @@
+<h1> edit questions </h1> 
+<%= form_with model: @subject do |form| %>
+<div>
+    <%= form.label :subject_name %>
+    <%= form.text_field :subject_name %>
+    <% @subject.errors.full_messages_for(:subject_name).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+</div>
+
+<div> 
+    <%= form.label :attempted_question_number%>
+    <%= form.text_field :ainput %>
+    <% @subject.errors.full_messages_for(:ainput).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+</div>
+
+<div> 
+    <%= form.label :solved_question %>
+    <%= form.text_field :sinput %>
+    <% @subject.errors.full_messages_for(:sinput).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= form.submit %>
+</div>
+
+<% end %>

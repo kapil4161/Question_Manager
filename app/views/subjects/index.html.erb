@@ -1,0 +1,16 @@
+<h1 style="color:Tomato;">Your Subjects</h1>
+<ul>
+    <h3><% @subjects.each do |subject| %>
+        <li>
+            <a href="<%=subject_path(subject) %>">
+                <%= subject.subject_name %>
+            </a>
+        </li>
+    <% end %></h3> 
+</ul>
+<%= link_to "New Subject", new_subject_path %>
+<div style="color:DodgerBlue;"><a href= logout >
+     logout
+</a>
+</div>
+

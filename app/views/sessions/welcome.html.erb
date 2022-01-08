@@ -1,0 +1,8 @@
+<h1 style="color:Tomato;"><u>Question Manager</u></h1>
+ <% session[:user_id]=nil %>
+ <%if logged_in? %>
+  <%= current_user.username %>
+ <%end%>
+<div style="color:DodgerBlue;"><h3>already an user: </h3><%= button_to "Login", '/login', method: :get%></div>
+<div style="color:DodgerBlue;"><h3>new user :</h3><%= button_to "Sign Up", '/users/new', method: :get%></div><br>
+<h3><a href="/about">About_Application</a></h3>

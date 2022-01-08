@@ -1,0 +1,62 @@
+<h3 style="color:Black;"><u>Subject_Name : <%= @subject.subject_name %> </u></h3>
+<h3 style="color:Red;">Unattempted_Questions: </h3>
+    <% x= @subject.unattempted.split("/") %>
+    <h3>
+    <% x= x.sort_by(&:to_i) %>
+    <% for p in x %>
+        <%=p %>
+    <% end %>
+    </h3>
+<h3 style="color:Orange">Attempted_Questions :</h3> 
+    <% x= @subject.attempted.split("/") %>
+    <% x= x.sort_by(&:to_i) %>
+    <h3>
+    <% for p in x %>
+        <%=p %>
+    <% end %>
+    </h3>
+<h3 style="color:Green;">Solved : </h3>
+    <% x= @subject.solved.split("/") %>
+    <% x= x.sort_by(&:to_i) %>
+    <h3>
+    <% for p in x %>
+        <%= p %>
+    <% end %>
+    </h3>
+
+<ul> 
+    <li>
+        <a href="/index">Back</a>
+    </li>
+    <li>
+        <%= link_to "Destroy", subject_path(@subject),
+            method: :delete,
+            data: {confirm: "Are you sure?"} %>
+    </li>
+</ul>
+
+
+<h1 style="color:Brown;"> Update Questions </h1> 
+<%= form_with model: @subject do |form| %>
+
+<div> 
+    <%= form.label :attempted_question_number%>
+    <%= form.text_field :ainput %>
+    <% @subject.errors.full_messages_for(:ainput).each do |message| %>
+        <div style="color:Red;"><%= message %></div>
+    <% end %>
+</div>
+<br>
+<div> 
+    <%= form.label :solved_question_number %>
+    <%= form.text_field :sinput %>
+    <% @subject.errors.full_messages_for(:sinput).each do |message| %>
+        <div style="color:Red;"><%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= form.submit "Update"%>
+</div>
+
+<% end %>

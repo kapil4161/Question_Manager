@@ -1,0 +1,20 @@
+<%= form_with model: @subject do |form| %>
+    <div>
+        <%= form.label :Subject_Name %><br>
+        <%= form.text_field :subject_name %><br>
+        <% @subject.errors.full_messages_for(:subject_name).each do |message| %>
+            <div style="color:Red;"><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+        <%= form.label :total_number_of_question %><br>
+        <%= form.text_field :unattempted %><br>
+        <% @subject.errors.full_messages_for(:unattempted).each do |message| %>
+            <div style="color:Red;"><%= message %></div>
+        <% end %>
+    </div><br>
+        
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
